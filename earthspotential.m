@@ -15,12 +15,11 @@ V=zeros(size(L,2),4);
  end
  
 figure
-
-subplot(2,2,1)
-polarplot(L,V(:,1));rticks([]);rlim([5.23e7 7.266e7]);legend(strcat('J',int2str(1)));thetalim([-90 90]);
-subplot(2,2,2)
-polarplot(L,V(:,2));rticks([]);rlim([6.23e7 6.266e7]);legend(strcat('J',int2str(2)));thetalim([-90 90]);
-subplot(2,2,3)
-polarplot(L,V(:,3));rticks([]);rlim([6.2495e7 6.2497e7]);legend(strcat('J',int2str(3)));thetalim([-90 90]);
-subplot(2,2,4)
-polarplot(L,V(:,4));rticks([]);rlim([6.2495e7 6.24971e7]);legend(strcat('J',int2str(4)));thetalim([-90 90]);
+    subplot(2,2,1)
+    polarplot(L,V(:,1));rticks([]);rlim([5.23e7 7.266e7]);legend(strcat('J',int2str(1)));thetalim([-90 90]);
+    subplot(2,2,2)
+    polarplot(L,V(:,2));rticks([]);rlim([6.23e7 6.266e7]);legend(strcat('J',int2str(2)));thetalim([-90 90]);
+    subplot(2,2,3)
+    polarplot(L,V(:,3));rticks([]);rlim([6.2495e7 6.2497e7]);legend(strcat('J',int2str(3)));thetalim([-90 90]);
+    subplot(2,2,4)
+    polarplot(L,V(:,4));rticks([]);rlim([6.2495e7 6.24971e7]);legend(strcat('J',int2str(4)));thetalim([-90 90]);
