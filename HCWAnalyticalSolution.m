@@ -10,14 +10,11 @@ r0=radiusOfEarth+altitude; %% in m
 omega=sqrt(mu/r0^3);
 %omega=2*pi;
 
-%% initial condition
-x0=1;
-y0=0;
-z0=0;
 
-u0=0;
-v0=0;
-w0=omega/2;
+%% initial condition
+x0=1;y0=0;z0=0;
+
+u0=0;v0=0;w0=omega/2;
 
 C1=u0/omega+2*z0;
 C2=w0/omega;
@@ -25,12 +22,14 @@ C3=-3*z0-2*u0/omega;
 C4=x0-2*w0/omega;
 C5=v0/omega;
 C6=y0;
-t=0:(2*pi/omega)/100:(2*pi/omega);%T;%-T/8;
 
+t=-2*(2*pi/omega):(2*pi/omega)/100:2*(2*pi/omega);%T;%-T/8;
+tRAAN=10*60;
+tsc=t-tRAAN;
 
-x=-3*C1*omega*t + 2*C2*cos(omega*t) - 2*C3*sin(omega*t) + C4;
-y= C5*sin(omega*t) + C6*cos(omega*t);
-z= 2*C1 + C2*sin(omega*t) + C3*cos(omega*t);
+x=-3*C1*omega*(tsc) + 2*C2*cos(omega*(tsc)) - 2*C3*sin(omega*(tsc)) + C4;
+y= C5*sin(omega*(tsc)) + C6*cos(omega*(tsc));
+z= 2*C1 + C2*sin(omega*(tsc)) + C3*cos(omega*(tsc));
 
 figure
   subplot(3,1,1)
