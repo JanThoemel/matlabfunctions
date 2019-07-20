@@ -8,8 +8,9 @@ radiusOfEarth=6371000;  %% in m;
 mu=3.986004418E14;      %% in m3?s?2
 r0=radiusOfEarth+altitude; %% in m
 omega=sqrt(mu/r0^3);
+tRAAN=10*60; %% [s]
 %omega=2*pi;
-
+%tRAAN=0.1*2*pi; %% fraction of orbit duration
 
 %% initial condition
 x0=1;y0=0;z0=0;
@@ -24,7 +25,7 @@ C5=v0/omega;
 C6=y0;
 
 t=-2*(2*pi/omega):(2*pi/omega)/100:2*(2*pi/omega);%T;%-T/8;
-tRAAN=0.1*2*pi/omega; %% fraction of orbit
+; %%
 tsc=t-tRAAN;
 
 x=-3*C1*omega*(tsc) + 2*C2*cos(omega*(tsc)) - 2*C3*sin(omega*(tsc)) + C4;
