@@ -51,4 +51,5 @@ while tsince<stopmfe-startmfe
     tsince=tsince+10;
     [satrec, r, v] = sgp4(satrec, tsince);
     fprintf('%f %f %f\n',r(1),r(2),r(3));
+    [latgc,latgd,lon,hellp] = ijk2lle ( r, jd );
 end
