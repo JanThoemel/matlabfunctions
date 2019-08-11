@@ -1,9 +1,9 @@
-function [density,v,meanRadiusOfEarth,mu,omega]=orbitalproperties(altitude)
+function [density,v,meanRadiusOfEarth,mu,MeanMotion]=orbitalproperties(altitude)
 
-  meanRadiusOfEarth=6371000;      %%[m]
+  meanRadiusOfEarth=6371000;      %% [m]
   equatorialRadiusOfEarth=6378.1; %% [m]
   polarRadiusOfEarth=6356.8;      %% [m] 
-  mu=3.986004418E14;              %% in m3?s?2 gravitational constant
+  mu=3.986004418E14;              %% [m3?s?2] gravitational constant
 
   densityarray=  [300.0 2.458E-14;
                   350.0 9.025E-15;
@@ -12,14 +12,20 @@ function [density,v,meanRadiusOfEarth,mu,omega]=orbitalproperties(altitude)
                   500.0 6.304E-16;
                   550.0 2.784E-16;
                   600.0 1.270E-16];
-  densityarray(:,1)=densityarray(:,1)*1000; %from km to m
-  densityarray(:,2)=densityarray(:,2)/1000*100^3; %from g/cm3 to kg/m3
+  densityarray(:,1)=densityarray(:,1)*1000;         %from km to m
+  densityarray(:,2)=densityarray(:,2)/1000*100^3;   %from g/cm3 to kg/m3
   f=fit(densityarray(:,1),densityarray(:,2),'exp1');
   density=f(altitude);
   
   %plot(densityarray(:,1),densityarray(:,2))
   %hold on;
   %plot(f)
+
+  r0=meanRadiusOfEarth+altitude; %% in m
+  v=sqrt(mu/r0);
+  MeanMotion=sqrt(mu/r0^3);          %% mean motion 
+end
+
 %{ 
 https://ccmc.gsfc.nasa.gov/cgi-bin/modelweb/models/vitmo_model.cgi
 VITMO ModelWeb Browser Results
@@ -43,8 +49,3 @@ Optional parametes: F10.7(daily) =not specified; F10.7(3-month avg) =not specifi
   550.0 2.784E-16
   600.0 1.270E-16
 %}
-  r0=meanRadiusOfEarth+altitude; %% in m
-  v=sqrt(mu/r0);
-  omega=sqrt(mu/r0^3);          %% mean motion 
-end
-
