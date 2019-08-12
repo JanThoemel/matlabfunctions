@@ -1,29 +1,23 @@
 function [density,v,meanRadiusOfEarth,mu,MeanMotion]=orbitalproperties(altitude)
-
-  meanRadiusOfEarth=6371000;      %% [m]
-  equatorialRadiusOfEarth=6378.1; %% [m]
-  polarRadiusOfEarth=6356.8;      %% [m] 
-  mu=3.986004418E14;              %% [m3?s?2] gravitational constant
-
-  densityarray=  [300.0 2.458E-14;
+%orbitalproperties provides physics constants and orbital properties
+  meanRadiusOfEarth=6371000;          %% [m]
+  %equatorialRadiusOfEarth=6378.1;     %% [m]
+  %polarRadiusOfEarth=6356.8;          %% [m] 
+  mu=3.986004418E14;                  %% [m3?s?2] gravitational constant
+  densityarray= [ 300.0 2.458E-14;
                   350.0 9.025E-15;
                   400.0 3.560E-15;
                   450.0 1.472E-15;
                   500.0 6.304E-16;
                   550.0 2.784E-16;
-                  600.0 1.270E-16];
+                  600.0 1.270E-16 ];
   densityarray(:,1)=densityarray(:,1)*1000;         %from km to m
   densityarray(:,2)=densityarray(:,2)/1000*100^3;   %from g/cm3 to kg/m3
   f=fit(densityarray(:,1),densityarray(:,2),'exp1');
   density=f(altitude);
-  
-  %plot(densityarray(:,1),densityarray(:,2))
-  %hold on;
-  %plot(f)
-
-  r0=meanRadiusOfEarth+altitude; %% in m
+  r0=meanRadiusOfEarth+altitude;      %% [m]
   v=sqrt(mu/r0);
-  MeanMotion=sqrt(mu/r0^3);          %% mean motion 
+  MeanMotion=sqrt(mu/r0^3);           %% mean motion 
 end
 
 %{ 
