@@ -17,7 +17,7 @@ function [density,v,meanRadiusOfEarth,mu,MeanMotion]=orbitalproperties(altitude)
   density=f(altitude);
   r0=meanRadiusOfEarth+altitude;      %% [m]
   v=sqrt(mu/r0);
-  MeanMotion=sqrt(mu/r0^3);           %% mean motion 
+  MeanMotion=sqrt(mu/r0^3);           %% mean motion [rad/s]
 end
 
 %{ 
