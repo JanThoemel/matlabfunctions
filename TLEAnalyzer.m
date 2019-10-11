@@ -1,6 +1,7 @@
 clear all;clc;close all;
 tleFiles=dir('C:\Users\jan.thoemel\Documents\My TLEs\2019\Full Catalog\*');
-catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
+%catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
+catalogueID=[43196,43197]; %% GOMX-4B GOMX-4A
 
 epochTime=zeros( size(catalogueID,2) ,1);
 RAAN=zeros( size(catalogueID,2) ,1);
@@ -15,34 +16,35 @@ w2=zeros( size(catalogueID,2) ,1);
 dn2=zeros( size(catalogueID,2) ,1);
 
 
-
 for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They shall be skipped
   %% copy file here
   copyfile(strcat(tleFiles(i).folder,'\',tleFiles(i).name), 'temp/');
   %% unzip file
   unzippedfilename=unzip(strcat('temp/',tleFiles(i).name),'temp/');
   %% readfile into variable
-  [epochTimeN,RAANN,aN,wN]=readtle( unzippedfilename{1},catalogueID);
-  
+  [epochTimeN,RAANN,aN,wN,foundno]=readtle( unzippedfilename{1},catalogueID);
   %% add TLE of catalogueID in arrary
-  if size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2)
+  if size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=0
     dnN=zeros( size(catalogueID,2) ,1);
     for j=1:size(epochTimeN,1)
-      datestringN=strcat('20',num2str(epochTimeN(j)));
-      dnN(j)=datenum(str2num(datestringN(1:4)),1,str2num(datestringN(5:10)));
+        if epochTimeN(j)~=0
+          datestringN=strcat('20',num2str(epochTimeN(j)));
+          dnN(j)=datenum(str2num(datestringN(1:4)),1,str2num(datestringN(5:10)));
+        else
+          datestringN=strcat('20',num2str(epochTimeN(j)))
+          dnN(j)=0;
+        end
     end
     epochTime=[epochTime epochTimeN];
     dn=[dn dnN];
     RAAN=[RAAN RAANN];
     a=[a aN];
     w=[w wN];
-  else %% do nothing
+    %for j=1:size(catalogueID,2)
+    %  sat2(j).epochTime=[sat2(j).epochTime epochTimeN(j)];
+    %end
+  elseif size(epochTimeN,2)>1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=0
     dnN2=zeros(size(epochTimeN));   
-    %size(RAANN)
-    %size(epochTime)
-    %size(epochTimeN)
-    %size(dnN)
-
     for j=1:size(epochTimeN,2)
       for k=1:size(epochTimeN,1)
         if epochTimeN(k,j)~=0
@@ -52,12 +54,17 @@ for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They
           dnN2(k,j)=0;
         end
       end
-    end    
+    end
     epochTime2=[epochTime2 epochTimeN];
     dn2=[dn2 dnN2];
     RAAN2=[RAAN2 RAANN];
     a2=[a2 aN];
-    w2=[w2 wN];    
+    w2=[w2 wN];
+  elseif size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=1
+    ;
+  else
+    fprintf('\n error');
+    input('');
   end
   %% delete zip and unzipped file
   delete(strcat('temp/',tleFiles(i).name));
@@ -98,13 +105,15 @@ for i=1:size(catalogueID,2)
   sat(i).a=[sat(i).a a2(i,a2(i,:)~=0)];
   sat(i).w=[sat(i).w w2(i,w2(i,:)~=0)];
   sat(i).dn=[sat(i).dn dn2(i,dn2(i,:)~=0)];
-  
+
+  %% define time and order arrary accordingly
   [sat(i).epochTime idx]=sort(sat(i).epochTime);
   sat(i).RAAN=sat(i).RAAN(idx);
   sat(i).a=sat(i).a(idx);
   sat(i).w=sat(i).w(idx);
   sat(i).dn=sat(i).dn(idx);
   
+  %% interpolate on first satellite' time instances
   if i~=1
     [TEMP, idx]=unique(sat(i).dn);
     sat(i).RAANInt     =interp1(TEMP,sat(i).RAAN(idx),sat(1).dn);
@@ -112,11 +121,6 @@ for i=1:size(catalogueID,2)
     sat(i).wInt        =interp1(TEMP,sat(i).w(idx),sat(1).dn);
   end  
 end
-
-%epochTime3(1,:)=epochTime2(1,epochTime2(1,:)~=0);
-
-%% define time and order arrary accordingly
-
 
 %% absolut plot argument of perigee, RAAN, excentrity
   subplot(3,1,1)
@@ -129,7 +133,7 @@ end
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).a-6371000);hold on;
     end
     ylabel('altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    axis([0 sat(1).dn(end)-sat(1).dn(1) mean(sat(1).a-6371000)-0.001*std(sat(1).a-6371000) mean(sat(1).a-6371000)+0.06*std(sat(1).a-6371000)])
+    %axis([0 sat(1).dn(end)-sat(1).dn(1) mean(sat(1).a-6371000)-0.001*std(sat(1).a-6371000) mean(sat(1).a-6371000)+0.06*std(sat(1).a-6371000)])
   subplot(3,1,3)
     for i=1:size(catalogueID,2)  
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).w);hold on;
@@ -149,7 +153,7 @@ figure
       plot(sat(1).dn-sat(1).dn(1),sat(i).aInt-sat(1).a);hold on;
     end
     ylabel('rel. altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).a) 0.002*std(sat(1).a)]);grid on;    
+    %axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).a) 0.002*std(sat(1).a)]);grid on;    
   subplot(3,1,3)
     for i=2:size(catalogueID,2)  
       plot(sat(1).dn-sat(1).dn(1),sat(i).wInt-sat(1).w);hold on;
@@ -158,7 +162,7 @@ figure
     axis([0 sat(1).dn(end)-sat(1).dn(1) -0.01*std(sat(1).w) 0.01*std(sat(1).w)]);grid on; 
 
 
-function [epochTime,RAAN,a,w]=readtle(file, catalog)
+function [epochTime,RAAN,a,w,foundno]=readtle(file, catalog)
 
 % READTLE Read satellite ephemeris data from a NORAD two-line element (TLE) file.
 %
@@ -181,18 +185,18 @@ function [epochTime,RAAN,a,w]=readtle(file, catalog)
   if fd < 0, fd = fopen([file '.tle'],'r'); end
   assert(fd > 0,['Can''t open file ' file ' for reading.'])
   n = 0;
-  foundno=[0 0 0];
-
-  epochTime=zeros(3,1);
-  Incl=zeros(3,1);
-  RAAN=zeros(3,1);
-  ecc=zeros(3,1);
-  w=zeros(3,1);
-  M=zeros(3,1);
-  n=zeros(3,1);
-  T=zeros(3,1);
-  a=zeros(3,1);
-  b=zeros(3,1);
+  foundno=zeros(size(catalog,2),1);
+  
+  epochTime=zeros(size(catalog,2),1);
+  Incl=zeros(size(catalog,2),1);
+  RAAN=zeros(size(catalog,2),1);
+  ecc=zeros(size(catalog,2),1);
+  w=zeros(size(catalog,2),1);
+  M=zeros(size(catalog,2),1);
+  n=zeros(size(catalog,2),1);
+  T=zeros(size(catalog,2),1);
+  a=zeros(size(catalog,2),1);
+  b=zeros(size(catalog,2),1);
   
   %A0 = fgetl(fd);
   A1 = fgetl(fd);
