@@ -1,19 +1,21 @@
 clear all;clc;close all;
 tleFiles=dir('C:\Users\jan.thoemel\Documents\My TLEs\2019\Full Catalog\*');
-%catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
-catalogueID=[43196,43197]; %% GOMX-4B GOMX-4A
+catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
+%catalogueID=[43196,43197]; %% GOMX-4B GOMX-4A
 
 epochTime=zeros( size(catalogueID,2) ,1);
 RAAN=zeros( size(catalogueID,2) ,1);
 a=zeros( size(catalogueID,2) ,1);
 w=zeros( size(catalogueID,2) ,1);
 dn=zeros( size(catalogueID,2) ,1);
+Incl=zeros( size(catalogueID,2) ,1);
 
 epochTime2=zeros( size(catalogueID,2) ,1);
 RAAN2=zeros( size(catalogueID,2) ,1);
 a2=zeros( size(catalogueID,2) ,1);
 w2=zeros( size(catalogueID,2) ,1);
 dn2=zeros( size(catalogueID,2) ,1);
+Incl2=zeros( size(catalogueID,2) ,1);
 
 
 for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They shall be skipped
@@ -22,7 +24,7 @@ for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They
   %% unzip file
   unzippedfilename=unzip(strcat('temp/',tleFiles(i).name),'temp/');
   %% readfile into variable
-  [epochTimeN,RAANN,aN,wN,foundno]=readtle( unzippedfilename{1},catalogueID);
+  [epochTimeN,RAANN,aN,wN,InclN,foundno]=readtle( unzippedfilename{1},catalogueID);
   %% add TLE of catalogueID in arrary
   if size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=0
     dnN=zeros( size(catalogueID,2) ,1);
@@ -31,15 +33,16 @@ for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They
           datestringN=strcat('20',num2str(epochTimeN(j)));
           dnN(j)=datenum(str2num(datestringN(1:4)),1,str2num(datestringN(5:10)));
         else
-          datestringN=strcat('20',num2str(epochTimeN(j)))
           dnN(j)=0;
         end
     end
+    %% add new entries
     epochTime=[epochTime epochTimeN];
     dn=[dn dnN];
     RAAN=[RAAN RAANN];
     a=[a aN];
     w=[w wN];
+    Incl=[Incl InclN];
     %for j=1:size(catalogueID,2)
     %  sat2(j).epochTime=[sat2(j).epochTime epochTimeN(j)];
     %end
@@ -55,11 +58,13 @@ for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They
         end
       end
     end
+    %% add new entries
     epochTime2=[epochTime2 epochTimeN];
     dn2=[dn2 dnN2];
     RAAN2=[RAAN2 RAANN];
     a2=[a2 aN];
     w2=[w2 wN];
+    Incl2=[Incl2 InclN];
   elseif size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=1
     ;
   else
@@ -84,12 +89,14 @@ RAAN(:,1)=[];
 a(:,1)=[];
 w(:,1)=[];
 dn(:,1)=[];
+Incl(:,1)=[];
 
 epochTime2(:,1)=[];
 RAAN2(:,1)=[];
 a2(:,1)=[];
 w2(:,1)=[];
 dn2(:,1)=[];
+Incl2(:,1)=[];
 
 
 for i=1:size(catalogueID,2)
@@ -98,13 +105,14 @@ for i=1:size(catalogueID,2)
   sat(i).a=a(i,:);
   sat(i).w=w(i,:);
   sat(i).dn=dn(i,:);
-  sat(i).epochTimeInt=9;
+  sat(i).Incl=Incl(i,:);
   
   sat(i).epochTime=[sat(i).epochTime epochTime2(i,epochTime2(i,:)~=0)];
   sat(i).RAAN=[sat(i).RAAN RAAN2(i,RAAN2(i,:)~=0)];
   sat(i).a=[sat(i).a a2(i,a2(i,:)~=0)];
   sat(i).w=[sat(i).w w2(i,w2(i,:)~=0)];
   sat(i).dn=[sat(i).dn dn2(i,dn2(i,:)~=0)];
+  sat(i).Incl=[sat(i).Incl Incl2(i,Incl2(i,:)~=0)];
 
   %% define time and order arrary accordingly
   [sat(i).epochTime idx]=sort(sat(i).epochTime);
@@ -112,6 +120,7 @@ for i=1:size(catalogueID,2)
   sat(i).a=sat(i).a(idx);
   sat(i).w=sat(i).w(idx);
   sat(i).dn=sat(i).dn(idx);
+  sat(i).Incl=sat(i).Incl(idx);
   
   %% interpolate on first satellite' time instances
   if i~=1
@@ -119,50 +128,68 @@ for i=1:size(catalogueID,2)
     sat(i).RAANInt     =interp1(TEMP,sat(i).RAAN(idx),sat(1).dn);
     sat(i).aInt        =interp1(TEMP,sat(i).a(idx),sat(1).dn);
     sat(i).wInt        =interp1(TEMP,sat(i).w(idx),sat(1).dn);
+    sat(i).InclInt     =interp1(TEMP,sat(i).Incl(idx),sat(1).dn);
   end  
 end
 
+
 %% absolut plot argument of perigee, RAAN, excentrity
-  subplot(3,1,1)
+figure
+  set(gcf, 'Position',  [50, 50, 1500, 500]);
+  subplot(2,4,1)
     for i=1:size(catalogueID,2)
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).RAAN);hold on;
     end
     ylabel('RAAN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-  subplot(3,1,2)
+    legend;
+  subplot(2,4,2)
+    for i=1:size(catalogueID,2)
+      plot(sat(i).dn(:)-sat(i).dn(1),sat(i).Incl);hold on;
+    end
+    ylabel('incl [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+  subplot(2,4,3)
     for i=1:size(catalogueID,2)    
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).a-6371000);hold on;
     end
-    ylabel('altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('alt [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
     %axis([0 sat(1).dn(end)-sat(1).dn(1) mean(sat(1).a-6371000)-0.001*std(sat(1).a-6371000) mean(sat(1).a-6371000)+0.06*std(sat(1).a-6371000)])
-  subplot(3,1,3)
+  subplot(2,4,4)
     for i=1:size(catalogueID,2)  
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).w);hold on;
     end
-    ylabel('arg of perigee [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('a o peri [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
 
 %% relative plot argument of perigee, RAAN, excentrity (relative to first satellite)
-figure
-  subplot(3,1,1)
+  subplot(2,4,5)
     for i=2:size(catalogueID,2)
       plot(sat(1).dn-sat(1).dn(1),sat(i).RAANInt-sat(1).RAAN);hold on;
     end
-    ylabel('rel. RAAN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.001*std(sat(1).RAAN) 0.001*std(sat(1).RAAN)]);grid on; legend;   
-    subplot(3,1,2)
+    ylabel('rel RAAN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.001*std(sat(1).RAAN) 0.001*std(sat(1).RAAN)]);
+    grid on; legend;   
+  subplot(2,4,6)
+    for i=2:size(catalogueID,2)
+      plot(sat(1).dn-sat(1).dn(1),sat(i).InclInt-sat(1).Incl);hold on;
+    end
+    ylabel('rel incl [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.001*std(sat(1).Incl) 0.001*std(sat(1).Incl)]);
+    grid on;  
+  subplot(2,4,7)
     for i=2:size(catalogueID,2)    
       plot(sat(1).dn-sat(1).dn(1),sat(i).aInt-sat(1).a);hold on;
     end
-    ylabel('rel. altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    %axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).a) 0.002*std(sat(1).a)]);grid on;    
-  subplot(3,1,3)
+    ylabel('rel alt [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    %axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).a) 0.002*std(sat(1).a)]);
+    grid on;
+  subplot(2,4,8)
     for i=2:size(catalogueID,2)  
       plot(sat(1).dn-sat(1).dn(1),sat(i).wInt-sat(1).w);hold on;
     end
-    ylabel('rel. arg of perigee [deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.01*std(sat(1).w) 0.01*std(sat(1).w)]);grid on; 
+    ylabel('rel a o peri[deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    axis([0 sat(1).dn(end)-sat(1).dn(1) -0.01*std(sat(1).w) 0.01*std(sat(1).w)]);
+    grid on; 
 
-
-function [epochTime,RAAN,a,w,foundno]=readtle(file, catalog)
+function [epochTime,RAAN,a,w,Incl,foundno]=readtle(file, catalog)
 
 % READTLE Read satellite ephemeris data from a NORAD two-line element (TLE) file.
 %
