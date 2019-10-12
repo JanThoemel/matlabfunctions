@@ -1,8 +1,12 @@
 clear all;clc;close all;
-tleFiles=dir('C:\Users\jan.thoemel\Documents\My TLEs\2019\Full Catalog\*');
+%% location of the TLE files, they shall be zipped text files in twolines, i.e. with a name line
+tleFiles=dir(strcat(getenv('USERPROFILE'),'\Documents\My TLEs\2019\Full Catalog\*'));
+%% which satellites to be processed, use NORAD ID
 catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
 %catalogueID=[43196,43197]; %% GOMX-4B GOMX-4A
 
+
+%% initialize arrays
 epochTime=zeros( size(catalogueID,2) ,1);
 RAAN=zeros( size(catalogueID,2) ,1);
 a=zeros( size(catalogueID,2) ,1);
@@ -18,7 +22,7 @@ dn2=zeros( size(catalogueID,2) ,1);
 Incl2=zeros( size(catalogueID,2) ,1);
 
 
-for i=3:size(tleFiles,1) %% first two entries of tleFiles are '.' and '..'. They shall be skipped
+for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tleFiles are '.' and '..'. They shall be skipped
   %% copy file here
   copyfile(strcat(tleFiles(i).folder,'\',tleFiles(i).name), 'temp/');
   %% unzip file
