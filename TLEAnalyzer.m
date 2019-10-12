@@ -1,5 +1,6 @@
 clear all;clc;close all;
 %% location of the TLE files, they shall be zipped text files in twolines, i.e. with a name line
+%% if you use the CelesTrak TLE retriever, then this setting will work
 tleFiles=dir(strcat(getenv('USERPROFILE'),'\Documents\My TLEs\2019\Full Catalog\*'));
 %% which satellites to be processed, use NORAD ID
 catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
