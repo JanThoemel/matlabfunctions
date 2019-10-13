@@ -3,8 +3,8 @@ clear all;clc;close all;
 %% if you use the CelesTrak TLE retriever, then this setting will work
 tleFiles=dir(strcat(getenv('USERPROFILE'),'\Documents\My TLEs\2019\Full Catalog\*'));
 %% which satellites to be processed, use NORAD ID
-catalogueID=[43765,43794,43799]; %% hawk-a,hawk-b,hawk-c
-%catalogueID=[43196,43197]; %% GOMX-4B GOMX-4A
+catalogueID=[43765,43794,43799]; catalogueNames=["HAWK-A" "HAWK-B" "HAWK-C"];
+%catalogueID=[43197,43196]; catalogueNames=["GOMX-4A" "GOMX-4B"]; 
 
 
 %% initialize arrays
@@ -25,59 +25,59 @@ Incl2=zeros( size(catalogueID,2) ,1);
 
 for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tleFiles are '.' and '..'. They shall be skipped
   %% copy file here
-  copyfile(strcat(tleFiles(i).folder,'\',tleFiles(i).name), 'temp/');
+  copyfile(strcat(tleFiles(i).folder,'\',tleFiles(i).name), 'temp\');
   %% unzip file
-  unzippedfilename=unzip(strcat('temp/',tleFiles(i).name),'temp/');
+  unzippedfilename=unzip(strcat('temp\',tleFiles(i).name),'temp\');
   %% readfile into variable
-  [epochTimeN,RAANN,aN,wN,InclN,foundno]=readtle( unzippedfilename{1},catalogueID);
+  [epochTimeNext,RAANNext,aNext,wNext,InclNext,foundno]=readtle( unzippedfilename{1},catalogueID);
   %% add TLE of catalogueID in arrary
-  if size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=0
-    dnN=zeros( size(catalogueID,2) ,1);
-    for j=1:size(epochTimeN,1)
-        if epochTimeN(j)~=0
-          datestringN=strcat('20',num2str(epochTimeN(j)));
-          dnN(j)=datenum(str2num(datestringN(1:4)),1,str2num(datestringN(5:10)));
+  if size(epochTimeNext,2)==1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=0
+    dnNext=zeros( size(catalogueID,2) ,1);
+    for j=1:size(epochTimeNext,1)
+        if epochTimeNext(j)~=0
+          datestringNext=strcat('20',num2str(epochTimeNext(j)));
+          dnNext(j)=datenum(str2num(datestringNext(1:4)),1,str2num(datestringNext(5:10)));
         else
-          dnN(j)=0;
+          dnNext(j)=0;
         end
     end
     %% add new entries
-    epochTime=[epochTime epochTimeN];
-    dn=[dn dnN];
-    RAAN=[RAAN RAANN];
-    a=[a aN];
-    w=[w wN];
-    Incl=[Incl InclN];
+    epochTime=[epochTime epochTimeNext];
+    dn=[dn dnNext];
+    RAAN=[RAAN RAANNext];
+    a=[a aNext];
+    w=[w wNext];
+    Incl=[Incl InclNext];
     %for j=1:size(catalogueID,2)
     %  sat2(j).epochTime=[sat2(j).epochTime epochTimeN(j)];
     %end
-  elseif size(epochTimeN,2)>1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=0
-    dnN2=zeros(size(epochTimeN));   
-    for j=1:size(epochTimeN,2)
-      for k=1:size(epochTimeN,1)
-        if epochTimeN(k,j)~=0
-          datestringN=strcat('20',num2str(epochTimeN(k,j)));
-          dnN2(k,j)=datenum(str2num(datestringN(1:4)),1,str2num(datestringN(5:end)));
+  elseif size(epochTimeNext,2)>1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=0
+    dnN2=zeros(size(epochTimeNext));   
+    for j=1:size(epochTimeNext,2)
+      for k=1:size(epochTimeNext,1)
+        if epochTimeNext(k,j)~=0
+          datestringNext=strcat('20',num2str(epochTimeNext(k,j)));
+          dnN2(k,j)=datenum(str2num(datestringNext(1:4)),1,str2num(datestringNext(5:end)));
         else
           dnN2(k,j)=0;
         end
       end
     end
     %% add new entries
-    epochTime2=[epochTime2 epochTimeN];
+    epochTime2=[epochTime2 epochTimeNext];
     dn2=[dn2 dnN2];
-    RAAN2=[RAAN2 RAANN];
-    a2=[a2 aN];
-    w2=[w2 wN];
-    Incl2=[Incl2 InclN];
-  elseif size(epochTimeN,2)==1 && size(epochTimeN,1)==size(catalogueID,2) && sum(foundno)~=1
+    RAAN2=[RAAN2 RAANNext];
+    a2=[a2 aNext];
+    w2=[w2 wNext];
+    Incl2=[Incl2 InclNext];
+  elseif size(epochTimeNext,2)==1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=1
     ;
   else
     fprintf('\n error');
     input('');
   end
   %% delete zip and unzipped file
-  delete(strcat('temp/',tleFiles(i).name));
+  delete(strcat('temp\',tleFiles(i).name));
   delete(unzippedfilename{1});  
   
   if i>3
@@ -105,6 +105,8 @@ Incl2(:,1)=[];
 
 
 for i=1:size(catalogueID,2)
+  sat(i).catalogueID=catalogueID(i);
+  sat(i).catalogueNames=catalogueNames(i);
   sat(i).epochTime=epochTime(i,:);
   sat(i).RAAN=RAAN(i,:);
   sat(i).a=a(i,:);
@@ -144,9 +146,10 @@ figure
   subplot(2,4,1)
     for i=1:size(catalogueID,2)
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).RAAN);hold on;
+      dataNameA(i)=sat(i).catalogueNames;
     end
     ylabel('RAAN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    legend;
+    legend(dataNameA);
   subplot(2,4,2)
     for i=1:size(catalogueID,2)
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).Incl);hold on;
@@ -167,11 +170,13 @@ figure
 %% relative plot argument of perigee, RAAN, excentrity (relative to first satellite)
   subplot(2,4,5)
     for i=2:size(catalogueID,2)
-      plot(sat(1).dn-sat(1).dn(1),sat(i).RAANInt-sat(1).RAAN);hold on;
+      plot(sat(1).dn-sat(1).dn(1),sat(i).RAANInt-sat(1).RAAN);
+      hold on;
+      dataNameR(i-1)=sat(i).catalogueNames;
     end
     ylabel('rel RAAN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
     axis([0 sat(1).dn(end)-sat(1).dn(1) -0.001*std(sat(1).RAAN) 0.001*std(sat(1).RAAN)]);
-    grid on; legend;   
+    grid on; legend(dataNameR); 
   subplot(2,4,6)
     for i=2:size(catalogueID,2)
       plot(sat(1).dn-sat(1).dn(1),sat(i).InclInt-sat(1).Incl);hold on;
