@@ -9,7 +9,7 @@ catalogueID=[43765,43794,43799]; catalogueNames=["HAWK-A" "HAWK-B" "HAWK-C"];
 %% initialize arrays
 epochTime=zeros( size(catalogueID,2) ,1);
 RAAN=zeros( size(catalogueID,2) ,1);
-a=zeros( size(catalogueID,2) ,1);
+sma=zeros( size(catalogueID,2) ,1);
 arOfPeri=zeros( size(catalogueID,2) ,1);
 dn=zeros( size(catalogueID,2) ,1);
 inclination=zeros( size(catalogueID,2) ,1);
@@ -17,7 +17,7 @@ meanAnomalyFromANAtMidnight=zeros( size(catalogueID,2) ,1);
 
 epochTime2=zeros( size(catalogueID,2) ,1);
 RAAN2=zeros( size(catalogueID,2) ,1);
-a2=zeros( size(catalogueID,2) ,1);
+sma2=zeros( size(catalogueID,2) ,1);
 arOfPeri2=zeros( size(catalogueID,2) ,1);
 dn2=zeros( size(catalogueID,2) ,1);
 inclination2=zeros( size(catalogueID,2) ,1);
@@ -29,7 +29,7 @@ for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tle
   %% unzip file
   unzippedfilename=unzip(strcat('temp\',tleFiles(i).name),'temp\');
   %% readfile into variable
-  [epochTimeNext,RAANNext,aNext,arOfPeriNext,inclinationNext,meanMotionNext,meanAnomalyNext,foundno]=readTLE( unzippedfilename{1},catalogueID);
+  [epochTimeNext,RAANNext,smaNext,arOfPeriNext,inclinationNext,meanMotionNext,meanAnomalyNext,foundno]=readTLE( unzippedfilename{1},catalogueID);
   %% add TLE of catalogueID in arrary
   if size(epochTimeNext,2)==1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=0
     dnNext=zeros( size(catalogueID,2) ,1);
@@ -55,12 +55,12 @@ for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tle
     epochTime=[epochTime epochTimeNext];
     dn=[dn dnNext];
     RAAN=[RAAN RAANNext];
-    a=[a aNext];
+    sma=[sma smaNext];
     arOfPeri=[arOfPeri arOfPeriNext];
     inclination=[inclination inclinationNext];
     meanAnomalyFromANAtMidnight=[meanAnomalyFromANAtMidnight meanAnomalyFromANAtMidnightNext];
     
-    %for j=1:size(catalogueID,2) %% add data already here in the array of struct
+    %for j=1:size(catalogueID,2) %% add data already here in the array of structs
     %  sat2(j).epochTime=[sat2(j).epochTime epochTimeN(j)];
     %end
   elseif size(epochTimeNext,2)>1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=0
@@ -89,14 +89,16 @@ for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tle
     epochTime2=[epochTime2 epochTimeNext];
     dn2=[dn2 dnNext2];
     RAAN2=[RAAN2 RAANNext];
-    a2=[a2 aNext];
+    sma2=[sma2 smaNext];
     arOfPeri2=[arOfPeri2 arOfPeriNext];
     inclination2=[inclination2 inclinationNext];
     meanAnomalyFromANAtMidnight2=[meanAnomalyFromANAtMidnight2 meanAnomalyFromANAtMidnightNext2];
   elseif size(epochTimeNext,2)==1 && size(epochTimeNext,1)==size(catalogueID,2) && sum(foundno)~=1
+    %fprintf('\n error 3000');
+    %input('');
     ;
   else
-    fprintf('\n error');
+    fprintf('\n error 4000');
     input('');
   end
   %% delete zip and unzipped file
@@ -111,19 +113,18 @@ for i=3:size(tleFiles,1) %% %% cycle overall all files, first two entries of tle
   
 end
 
-%% remove first column
+%% remove first column (the one that was created when creating the variables)
 epochTime(:,1)=[];
 RAAN(:,1)=[];
-a(:,1)=[];
+sma(:,1)=[];
 arOfPeri(:,1)=[];
 dn(:,1)=[];
 inclination(:,1)=[];
 meanAnomalyFromANAtMidnight(:,1)=[];
 
-
 epochTime2(:,1)=[];
 RAAN2(:,1)=[];
-a2(:,1)=[];
+sma2(:,1)=[];
 arOfPeri2(:,1)=[];
 dn2(:,1)=[];
 inclination2(:,1)=[];
@@ -131,11 +132,12 @@ meanAnomalyFromANAtMidnight2(:,1)=[];
 
 
 for i=1:size(catalogueID,2)
+  %% patch data together
   sat(i).catalogueID=catalogueID(i);
   sat(i).catalogueNames=catalogueNames(i);
   sat(i).epochTime=epochTime(i,:);
   sat(i).RAAN=RAAN(i,:);
-  sat(i).a=a(i,:);
+  sat(i).sma=sma(i,:);
   sat(i).arOfPeri=arOfPeri(i,:);
   sat(i).dn=dn(i,:);
   sat(i).inclination=inclination(i,:);
@@ -143,26 +145,26 @@ for i=1:size(catalogueID,2)
   
   sat(i).epochTime=[sat(i).epochTime epochTime2(i,epochTime2(i,:)~=0)];
   sat(i).RAAN=[sat(i).RAAN RAAN2(i,RAAN2(i,:)~=0)];
-  sat(i).a=[sat(i).a a2(i,a2(i,:)~=0)];
+  sat(i).sma=[sat(i).sma sma2(i,sma2(i,:)~=0)];
   sat(i).arOfPeri=[sat(i).arOfPeri arOfPeri2(i,arOfPeri2(i,:)~=0)];
   sat(i).dn=[sat(i).dn dn2(i,dn2(i,:)~=0)];
   sat(i).inclination=[sat(i).inclination inclination2(i,inclination2(i,:)~=0)];
   sat(i).meanAnomalyFromANAtMidnight=[sat(i).meanAnomalyFromANAtMidnight meanAnomalyFromANAtMidnight2(i,meanAnomalyFromANAtMidnight2(i,:)~=0)] ;
 
-  %% define time and order arrary accordingly
+  %% define time and order arrarys accordingly
   [sat(i).epochTime idx]=sort(sat(i).epochTime);
   sat(i).RAAN=sat(i).RAAN(idx);
-  sat(i).a=sat(i).a(idx);
+  sat(i).sma=sat(i).sma(idx);
   sat(i).arOfPeri=sat(i).arOfPeri(idx);
   sat(i).dn=sat(i).dn(idx);
   sat(i).inclination=sat(i).inclination(idx);
   sat(i).meanAnomalyFromANAtMidnight=sat(i).meanAnomalyFromANAtMidnight(idx);
   
-  %% interpolate on first satellite' time instances
+  %% interpolate on first satellite' time instances; this is required to plot relative quantities later
   if i~=1
     [TEMP, idx]                           =unique(sat(i).dn);
     sat(i).RAANInt                        =interp1(TEMP,sat(i).RAAN(idx),sat(1).dn);
-    sat(i).aInt                           =interp1(TEMP,sat(i).a(idx),sat(1).dn);
+    sat(i).smaInt                         =interp1(TEMP,sat(i).sma(idx),sat(1).dn);
     sat(i).arOfPeriInt                    =interp1(TEMP,sat(i).arOfPeri(idx),sat(1).dn);
     sat(i).inclinationInt                 =interp1(TEMP,sat(i).inclination(idx),sat(1).dn);
     sat(i).meanAnomalyFromANAtMidnightInt =interp1(TEMP,sat(i).meanAnomalyFromANAtMidnight(idx),sat(1).dn);
@@ -171,9 +173,10 @@ end %% loop over satellites
 
 
 %% absolut plot argument of perigee, RAAN, excentrity
+
 figure
-  set(gcf, 'Position',  [50, 50, 1800, 500]);
-  subplot(2,4,1)
+set(gcf, 'Position',  [50, 50, 1500, 500]);
+  subplot(2,5,1)
     for i=1:size(catalogueID,2)
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).RAAN);hold on;
       dataNameA(i)=sat(i).catalogueNames;
@@ -184,23 +187,23 @@ figure
     for i=1:size(catalogueID,2)
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).inclination);hold on;
     end
-    ylabel('incl [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('inclination [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
   subplot(2,5,3)
     for i=1:size(catalogueID,2)    
-      plot(sat(i).dn(:)-sat(i).dn(1),sat(i).a-6371000);hold on;
+      plot(sat(i).dn(:)-sat(i).dn(1),sat(i).sma-6371000);hold on;
     end
-    ylabel('alt [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    %axis([0 sat(1).dn(end)-sat(1).dn(1) mean(sat(1).a-6371000)-0.001*std(sat(1).a-6371000) mean(sat(1).a-6371000)+0.06*std(sat(1).a-6371000)])
+    ylabel('altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    %axis([0 sat(1).dn(end)-sat(1).dn(1) mean(sat(1).sma-6371000)-0.001*std(sat(1).sma-6371000) mean(sat(1).sma-6371000)+0.06*std(sat(1).sma-6371000)])
   subplot(2,5,4)
     for i=1:size(catalogueID,2)  
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).arOfPeri);hold on;
     end
-    ylabel('a o peri [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('a o perigee [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
   subplot(2,5,5)
     for i=1:size(catalogueID,2)  
       plot(sat(i).dn(:)-sat(i).dn(1),sat(i).meanAnomalyFromANAtMidnight);hold on;
     end
-    ylabel('mA at MN [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('mean anomaly at 00:00 [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
 
 %% relative plot argument of perigee, RAAN, excentrity (relative to first satellite)
   subplot(2,5,6)
@@ -216,32 +219,32 @@ figure
     for i=2:size(catalogueID,2)
       plot(sat(1).dn-sat(1).dn(1),sat(i).inclinationInt-sat(1).inclination);hold on;
     end
-    ylabel('rel incl [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('rel inclincation [deg]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
     axis([0 sat(1).dn(end)-sat(1).dn(1) -0.001*std(sat(1).inclination) 0.001*std(sat(1).inclination)]);
     grid on;  
   subplot(2,5,8)
     for i=2:size(catalogueID,2)    
-      plot(sat(1).dn-sat(1).dn(1),sat(i).aInt-sat(1).a);hold on;
+      plot(sat(1).dn-sat(1).dn(1),sat(i).smaInt-sat(1).sma);hold on;
     end
-    ylabel('rel alt [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
-    %axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).a) 0.002*std(sat(1).a)]);
+    ylabel('rel altitude [m]'); xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    %axis([0 sat(1).dn(end)-sat(1).dn(1) -0.002*std(sat(1).sma) 0.002*std(sat(1).sma)]);
     grid on;
   subplot(2,5,9)
     for i=2:size(catalogueID,2)  
       plot(sat(1).dn-sat(1).dn(1),sat(i).arOfPeriInt-sat(1).arOfPeri);hold on;
     end
-    ylabel('rel a o peri[deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('rel a o perigee [deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
     axis([0 sat(1).dn(end)-sat(1).dn(1) -0.01*std(sat(1).arOfPeri) 0.01*std(sat(1).arOfPeri)]);
     grid on; 
   subplot(2,5,10)
     for i=2:size(catalogueID,2)  
       plot(sat(1).dn-sat(1).dn(1),sat(i).meanAnomalyFromANAtMidnightInt-sat(1).meanAnomalyFromANAtMidnight);hold on;
     end
-    ylabel('rel mA at mN [deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
+    ylabel('rel mean anomaly at 00:00 [deg]');xlabel(strcat('time from',{' '},datestr(datetime( sat(1).dn(1),'ConvertFrom','datenum') ),{' '},'[d]') );
     axis([0 sat(1).dn(end)-sat(1).dn(1) -0.1*std(sat(1).meanAnomalyFromANAtMidnight) 0.1*std(sat(1).meanAnomalyFromANAtMidnight)]);
     grid on; 
 
-function [epochTime,RAAN,a,arOfPeri,inclination,meanMotion,meanAnomaly,foundno]=readTLE(file, catalog)
+function [epochTime,RAAN,sma,arOfPeri,inclination,meanMotion,meanAnomaly,foundno]=readTLE(file, catalog)
 
 % READTLE Read satellite ephemeris data from a NORAD two-line element (TLE) file.
 %
@@ -274,7 +277,7 @@ function [epochTime,RAAN,a,arOfPeri,inclination,meanMotion,meanAnomaly,foundno]=
   meanAnomaly=zeros(size(catalog,2),1);
   meanMotion=zeros(size(catalog,2),1);
   T=zeros(size(catalog,2),1);
-  a=zeros(size(catalog,2),1);
+  sma=zeros(size(catalog,2),1);
   b=zeros(size(catalog,2),1);
   
   %A0 = fgetl(fd);
@@ -306,14 +309,18 @@ function [epochTime,RAAN,a,arOfPeri,inclination,meanMotion,meanAnomaly,foundno]=
       %fprintf('Mean anomaly: %f deg\n', meanAnomaly)
       meanMotion(satcount,foundno(satcount)) = str2num(A2(53:63));
       %fprintf('Mean motion: %f rev/day\n', meanMotion)
-      meanMotion(satcount,foundno(satcount)) = meanMotion(satcount,foundno(satcount))*360/(24*60*60);
-      %fprintf('Mean motion: %f deg/second\n', meanMotion)
       T(satcount,foundno(satcount)) = 86400/meanMotion(satcount,foundno(satcount));
       %fprintf('Period of rev: %.0f s/rev\n', T)
-      a(satcount,foundno(satcount)) = ((T(satcount,foundno(satcount))/(2*pi))^2*398.6e12)^(1/3);
+      sma(satcount,foundno(satcount)) = ((T(satcount,foundno(satcount))/(2*pi))^2*398.6e12)^(1/3);
       %fprintf('Semi-major axis: %.0f meters\n', a)
-      b(satcount,foundno(satcount)) = a(satcount,foundno(satcount))*sqrt(1-ecc(satcount,foundno(satcount))^2);
+      b(satcount,foundno(satcount)) = sma(satcount,foundno(satcount))*sqrt(1-ecc(satcount,foundno(satcount))^2);
       %fprintf('Semi-minor axis: %.0f meters\n', b)
+
+      %% change of dimenstions for meanMotion
+      meanMotion(satcount,foundno(satcount)) = meanMotion(satcount,foundno(satcount))*360/(24*60*60);
+      %fprintf('Mean motion: %f deg/second\n', meanMotion)
+
+    
     end
     %A0 = fgetl(fd);
     A1 = fgetl(fd);
