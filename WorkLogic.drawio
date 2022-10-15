@@ -1,1 +1,106 @@
-<mxfile host="app.diagrams.net" modified="2022-10-12T16:03:13.430Z" agent="5.0 (Windows)" etag="J1wqs67x_9zJ2PxNRoM9" version="20.4.0" type="github"><diagram id="DFVE3U21liSkLKEEEODE" name="Page-1">7VrbcqM4EP0aV80+xMXd8Jg4TqZqZna9k91J8qgYGTQjECVEbOfrVwJxx5jYjp1sjR9sdGjQpU+fboRH+jRY31IQ+d+IC/FIU9z1SL8eaZpqTXT+I5BNhti2mQEeRW4GKSVwh16gvDJHE+TCWGIZxAjBDEV1cEHCEC5YDQOUklXdbEmwWwMi4MEWcLcAuI3eI5f5chamUuKfIfL8vGdVkWcCkBtLIPaBS1YVSJ+N9CklhGVHwXoKsVi8+rrcbDlbDIzCkA25wEps5cvm6uHP65sXdjF7tC+i2YUhx8Y2+YShy+cvm4Qyn3gkBHhWoleUJKELxV0V3iptvhIScVDl4E/I2EY6EySMcMhnAZZn4RqxB3E8VlRTth/F7caqZcj29VreP21s8kbI6OYhNTXz5mP1XHlZ2tpUbjKHFAWQQSox7o9IjG+J4fpSMIVj7TWVyxyThC5gz0Lm3ATUg6zHTsvsxCpXOpAeu4WEj5BuuAGFGDD0XGchkGT2CrvS3/xAuvwV7pf3fQY4kT2NNAvz8V898QNPHNzPC4x3UcCFHW0icQTCHJtCytAScbLwKWMenxQtxALjJIBp0AZRwvg8SZjGJr+XgrkjBJMtEHA2XWXfYowwXZfsNAScdfyX0CfE2kP5dDe//D79Y/sY+Uyqw2wFwcpHDN5FIHX5iitbncAgjjKtWaK1CISrJcJ4SjCh6eW6C6C9XIi1YJT8gpUz1sKGT8s+pvF5Mrju5UYhrlJZpLRqtmyvSqFSc/XxqyKVg0fn0+TccqI15CRvfzQ50QbKifm+5EQ9p/+lE6X31V7P1wPThUuQZOLFV5xJ910vMIhjtMjhG4SLLkO3bcTBmknBLcOpkutCGSuKuothotWk2NvTyTk2neSlc4L4kAvl0pW6cplmQ5CygcqrSlLyNQebilkkDOKefux6P5bSKJEa9qpmHGav2o0YykZcRlSxhvsHmTYkZ+tjMYx7caDvn75n80qypsAFIkHHyAsBSyhMAx0CzHwUeoJdPg9lz09hSlIoAF4IWZrzeRWA3VhMTuT6r7O/OrP8j/REO5+H/5wvmy+X0Fp0ZnN34jwpvZE5PJvrWp2runH2bG6fRc0PyMkPFd3PK4BJfwXw5pncHCi91mmk19IbNGtKbzahlvQeS71U7XeJ0Fki1Mie1giT09YIQ4l6ohpBs7pz97FrBNN4bY1gHmavTt6+RjCH1AjG6woDFz331Qrf8/KgWhLwefjE5SHkbbYm6wLu6GBHn43n/IG3/ojP+kajkjWUs1cHqv5RlLyms4XwFjpbKO8WnT1RIjiekltnVfLXCvBEOaoAv42gWkME1ewT1C5lGvAoM0gHpyQIIF0ggNFLvpvKWQsY/K27h+mu1agODOv8uqu0lvKkums4ekV5UwXd9dJmpwAeKrEdT3H7y6czUD7VdyGfr61HNa1Xbt9GPp0h8qnuv1E1p+SnUAttmgYG+AV9gl1I0y2oEHgwgOkagNAdZa+dMAIp4qI4hgEKpWz2Clr/GGqbVP+LLSnLajy52CfUvnsQob9vL37gePrvN3KHVvjhy7D3lfr4ACZdsoDEkQ/l9mbiivXI3kx+6L3Jltc7uNEmwqahGefz/Fm3jd7rHxUaqWeQSw/cluEe5gm//MjdjIIpujO2Jk75MesdbNldbGcp1R5r9TtPnLFT/dRvvGU3aI8E1km/8zzrnqRwqj0YV6s6vZ/hHUzdxvpdbzuHsnm/4m17JnnvtdqWLdDOUq0dQqbTSN+NkBkai1b9JacxcCN2d+jxZvn3t8y8/BOhPvsP</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-10-15T10:53:08.527Z" agent="5.0 (Windows)" etag="6_hHj5folxqLOspE42KI" version="20.4.1" type="github">
+  <diagram id="DFVE3U21liSkLKEEEODE" name="Page-1">
+    <mxGraphModel dx="1185" dy="627" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.015;exitY=0.164;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" parent="1" source="6u80KyBXNDFzt-EY8-pE-1" target="6u80KyBXNDFzt-EY8-pE-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-1" value="&lt;b&gt;WP2&lt;/b&gt;&lt;br&gt;&lt;span&gt;Certified electric plume computation for low &amp;amp; very low earth orbit&lt;br&gt;(SPARC)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="160" y="280" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.012;exitY=0.162;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" parent="1" source="6u80KyBXNDFzt-EY8-pE-2" target="6u80KyBXNDFzt-EY8-pE-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=default;startArrow=classic;startFill=1;endArrow=classic;endFill=1;entryX=0.49;entryY=-0.001;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-2" target="6u80KyBXNDFzt-EY8-pE-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="550" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="380" y="600" />
+              <mxPoint x="320" y="600" />
+              <mxPoint x="320" y="629" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-2" value="&lt;b&gt;WP3.2/WWP3.3&lt;/b&gt;&lt;br&gt;&lt;span&gt;EP plume radar signature stealthing through strong magnetic fields in LEO &amp;amp; VLEO&lt;br&gt;(SnT)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="320" y="340" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;shape=flexArrow;" parent="1" source="6u80KyBXNDFzt-EY8-pE-5" target="6u80KyBXNDFzt-EY8-pE-6" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="630" y="350" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;strokeColor=default;startArrow=classic;startFill=1;endArrow=classic;endFill=1;entryX=0.495;entryY=-0.007;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-5" target="6u80KyBXNDFzt-EY8-pE-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="540" y="600" />
+              <mxPoint x="320" y="600" />
+              <mxPoint x="320" y="628" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-5" value="&lt;b&gt;WP4&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;Radar stealthing methodology&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="480" y="400" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.491;entryY=-0.005;entryDx=0;entryDy=0;strokeColor=default;startArrow=classic;startFill=1;endArrow=classic;endFill=1;entryPerimeter=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-6" target="6u80KyBXNDFzt-EY8-pE-9" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="700" y="600" />
+              <mxPoint x="320" y="600" />
+              <mxPoint x="320" y="621" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-6" value="&lt;b&gt;WP5&lt;/b&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span&gt;Commercialization strategy&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+          <mxGeometry x="640" y="460" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.493;exitY=-0.004;exitDx=0;exitDy=0;endArrow=classic;endFill=1;strokeColor=default;startArrow=classic;startFill=1;exitPerimeter=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-9" target="6u80KyBXNDFzt-EY8-pE-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="622" />
+              <mxPoint x="320" y="622" />
+              <mxPoint x="320" y="600" />
+              <mxPoint x="220" y="600" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-9" value="&lt;b&gt;WP1&lt;/b&gt;&lt;br&gt;&lt;span&gt;Project, stakeholder management and compliant dissemination&lt;/span&gt;&lt;br&gt;&lt;span&gt;(SnT)&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry x="261" y="629" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="WapiQG-VlsCUMoSiwlXK-1" value="&lt;b&gt;WP3.1&lt;/b&gt;&lt;br&gt;&lt;span&gt;Atmosphere study for VLEO&lt;br&gt;(SnT)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
+          <mxGeometry y="220" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="WapiQG-VlsCUMoSiwlXK-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.015;exitY=0.164;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" parent="1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120.00000000000017" y="239.67999999999995" as="sourcePoint" />
+            <mxPoint x="218.2" y="279.9999999999999" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="WapiQG-VlsCUMoSiwlXK-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;strokeColor=default;startArrow=classic;startFill=1;exitX=0.491;exitY=-0.003;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-9" target="WapiQG-VlsCUMoSiwlXK-1" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="600" />
+              <mxPoint x="60" y="600" />
+            </Array>
+            <mxPoint x="259" y="619" as="sourcePoint" />
+            <mxPoint x="64" y="400" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="r7LQb18F4gSGtSUEHotT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="r7LQb18F4gSGtSUEHotT-2" target="6u80KyBXNDFzt-EY8-pE-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7LQb18F4gSGtSUEHotT-2" value="&lt;b&gt;Project Advice&lt;br&gt;&lt;/b&gt;(Prof. L. Walpot, ESA)&lt;span&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="86" y="659" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="r7LQb18F4gSGtSUEHotT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;" edge="1" parent="1" source="r7LQb18F4gSGtSUEHotT-4" target="6u80KyBXNDFzt-EY8-pE-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="r7LQb18F4gSGtSUEHotT-4" value="Validation Feasibility Study (VKI)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="401" y="500" width="60" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
