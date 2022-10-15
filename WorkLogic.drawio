@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-10-15T10:53:08.527Z" agent="5.0 (Windows)" etag="6_hHj5folxqLOspE42KI" version="20.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-15T10:53:37.504Z" agent="5.0 (Windows)" etag="FZNyU21gXqJ0kvx5KNUp" version="20.4.1" type="github">
   <diagram id="DFVE3U21liSkLKEEEODE" name="Page-1">
     <mxGraphModel dx="1185" dy="627" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -97,7 +97,7 @@
         <mxCell id="r7LQb18F4gSGtSUEHotT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;" edge="1" parent="1" source="r7LQb18F4gSGtSUEHotT-4" target="6u80KyBXNDFzt-EY8-pE-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r7LQb18F4gSGtSUEHotT-4" value="Validation Feasibility Study (VKI)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="r7LQb18F4gSGtSUEHotT-4" value="&lt;b&gt;Validation Feasibility Study &lt;/b&gt;(VKI)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
           <mxGeometry x="401" y="500" width="60" height="60" as="geometry" />
         </mxCell>
       </root>
