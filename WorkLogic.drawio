@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-10-15T10:53:37.504Z" agent="5.0 (Windows)" etag="FZNyU21gXqJ0kvx5KNUp" version="20.4.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-22T10:12:28.572Z" agent="5.0 (Windows)" etag="T1HoUhPSYLNYi1PVOZxK" version="20.5.0" type="github">
   <diagram id="DFVE3U21liSkLKEEEODE" name="Page-1">
-    <mxGraphModel dx="1185" dy="627" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2844" dy="1422" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -88,17 +88,90 @@
             <mxPoint x="64" y="400" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="r7LQb18F4gSGtSUEHotT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="r7LQb18F4gSGtSUEHotT-2" target="6u80KyBXNDFzt-EY8-pE-9">
+        <mxCell id="r7LQb18F4gSGtSUEHotT-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="r7LQb18F4gSGtSUEHotT-2" target="6u80KyBXNDFzt-EY8-pE-9" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r7LQb18F4gSGtSUEHotT-2" value="&lt;b&gt;Project Advice&lt;br&gt;&lt;/b&gt;(Prof. L. Walpot, ESA)&lt;span&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="r7LQb18F4gSGtSUEHotT-2" value="&lt;b&gt;Project Advice&lt;br&gt;&lt;/b&gt;(Prof. L. Walpot, ESA)&lt;span&gt;&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="86" y="659" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="r7LQb18F4gSGtSUEHotT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;" edge="1" parent="1" source="r7LQb18F4gSGtSUEHotT-4" target="6u80KyBXNDFzt-EY8-pE-2">
+        <mxCell id="r7LQb18F4gSGtSUEHotT-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.925;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;endArrow=blockThin;endFill=1;startArrow=blockThin;startFill=1;" parent="1" source="r7LQb18F4gSGtSUEHotT-4" target="6u80KyBXNDFzt-EY8-pE-2" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="r7LQb18F4gSGtSUEHotT-4" value="&lt;b&gt;Validation Feasibility Study &lt;/b&gt;(VKI)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="r7LQb18F4gSGtSUEHotT-4" value="&lt;b&gt;Validation Feasibility Study &lt;/b&gt;(VKI)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="401" y="500" width="60" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-2" target="D5QPej1WfwV8z0YU9p-y-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-2" value="&lt;b&gt;VSTRAP&lt;/b&gt;&lt;span&gt; plume computations&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span&gt;1-without&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;2-with magnetic field&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1119" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.012;exitY=0.162;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-5" target="D5QPej1WfwV8z0YU9p-y-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-5" value="&lt;div&gt;&lt;span&gt;&lt;b&gt;BORAT &lt;/b&gt;radar cross section computation:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;1-without magnet&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;2-with magnet&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="279" y="1258" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-8" target="D5QPej1WfwV8z0YU9p-y-10">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="589" y="1268" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-8" value="&lt;span&gt;Radar detection &amp;amp; stealthing methodology&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="439" y="1318" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-10" value="&lt;div&gt;Reach-out to potential&amp;nbsp; customers for:&lt;/div&gt;&lt;div&gt;-situational awareness&lt;br&gt;&lt;/div&gt;&lt;div&gt;-radar stealthing &lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;strokeWidth=3;" vertex="1" parent="1">
+          <mxGeometry x="599" y="1378" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.015;exitY=0.164;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-21" target="D5QPej1WfwV8z0YU9p-y-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-21" value="&lt;b&gt;WP2&lt;/b&gt;&lt;br&gt;&lt;span&gt;Certified electric plume computation for low &amp;amp; very low earth orbit&lt;br&gt;(SPARC)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="226" y="1712" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-22" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.012;exitY=0.162;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-23" target="D5QPej1WfwV8z0YU9p-y-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-23" value="&lt;b&gt;WP3.2/WWP3.3&lt;/b&gt;&lt;br&gt;&lt;span&gt;EP plume radar signature stealthing through strong magnetic fields in LEO &amp;amp; VLEO&lt;br&gt;(SnT)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="386" y="1772" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=0.167;exitDx=0;exitDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-25" target="D5QPej1WfwV8z0YU9p-y-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="696" y="1782" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-25" value="&lt;b&gt;WP4&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;Radar stealthing methodology&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="546" y="1832" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-26" value="&lt;b&gt;WP5&lt;/b&gt;&lt;span&gt;&lt;br&gt;&lt;/span&gt;&lt;div&gt;&lt;span&gt;Commercialization strategy&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="706" y="1892" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-27" value="&lt;b&gt;WP3.1&lt;/b&gt;&lt;br&gt;&lt;span&gt;Atmosphere study for VLEO&lt;br&gt;(SnT)&lt;br&gt;&lt;/span&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="66" y="1652" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1.015;exitY=0.164;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitPerimeter=0;shape=flexArrow;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="186.00000000000023" y="1671.6799999999998" as="sourcePoint" />
+            <mxPoint x="284.20000000000005" y="1712" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-29" value="&lt;div&gt;&lt;span&gt;&lt;b&gt;BORAT&lt;/b&gt; feature implementation:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;a-radar-plasma interaction&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;b-radar cross section&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="439" y="1119" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;shape=flexArrow;entryX=0.75;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-29" target="D5QPej1WfwV8z0YU9p-y-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="251.79999999999995" y="1148.68" as="sourcePoint" />
+            <mxPoint x="339" y="1257" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-31" value="&lt;div&gt;&lt;b&gt;VSTRAP&lt;/b&gt;&lt;span&gt; feature implementation:&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;-magnetic field&lt;br&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="279" y="977" width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="D5QPej1WfwV8z0YU9p-y-32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;shape=flexArrow;entryX=0.5;entryY=0;entryDx=0;entryDy=0;dashed=1;" edge="1" parent="1" source="D5QPej1WfwV8z0YU9p-y-31" target="D5QPej1WfwV8z0YU9p-y-2">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="274" y="1040" as="sourcePoint" />
+            <mxPoint x="174" y="1119" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
