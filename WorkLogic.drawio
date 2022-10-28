@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2022-10-27T14:40:31.230Z" agent="5.0 (Windows)" etag="hcQPIQkG8G71eQ5Z3u_Y" version="20.5.1" type="github">
+<mxfile host="app.diagrams.net" modified="2022-10-28T11:48:31.702Z" agent="5.0 (Windows)" etag="_sM1cP_mPrC4IbhEnikG" version="20.5.1" type="github">
   <diagram id="DFVE3U21liSkLKEEEODE" name="Page-1">
-    <mxGraphModel dx="2035" dy="627" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2272" dy="752" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -39,7 +39,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="6u80KyBXNDFzt-EY8-pE-5" value="&lt;b&gt;WP4&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;Radar stealthing methodology &amp;amp; Commercialization&lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+        <mxCell id="6u80KyBXNDFzt-EY8-pE-5" value="&lt;b&gt;WP4&lt;/b&gt;&lt;br&gt;&lt;div&gt;&lt;span&gt;Radar stealthing methodology &amp;amp; &lt;br&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span&gt;(SPARC)&lt;/span&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="480" y="400" width="120" height="120" as="geometry" />
         </mxCell>
         <mxCell id="6u80KyBXNDFzt-EY8-pE-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.493;exitY=-0.004;exitDx=0;exitDy=0;endArrow=classic;endFill=1;strokeColor=default;startArrow=classic;startFill=1;exitPerimeter=0;" parent="1" source="6u80KyBXNDFzt-EY8-pE-9" target="6u80KyBXNDFzt-EY8-pE-1" edge="1">
@@ -239,27 +239,27 @@
         <mxCell id="YZTKvlMjnJpBLGsjX8JX-45" value="satellite and electric propulsion system characteristics" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
           <mxGeometry x="510" y="2745" width="127" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-1" value="Sparc-Industries" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-1" value="Sparc-Industries" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
           <mxGeometry x="924" y="380" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="jlQeX7XrOin1796Jp8fQ-4" target="jlQeX7XrOin1796Jp8fQ-1">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="jlQeX7XrOin1796Jp8fQ-4" target="jlQeX7XrOin1796Jp8fQ-1" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="jlQeX7XrOin1796Jp8fQ-4" target="jlQeX7XrOin1796Jp8fQ-6">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="1" source="jlQeX7XrOin1796Jp8fQ-4" target="jlQeX7XrOin1796Jp8fQ-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-4" value="&lt;div&gt;Interdisciplinary Centre for Security, Reliability and Trust&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-4" value="&lt;div&gt;Interdisciplinary Centre for Security, Reliability and Trust&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="1" vertex="1">
           <mxGeometry x="924" y="197" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="jlQeX7XrOin1796Jp8fQ-7" target="jlQeX7XrOin1796Jp8fQ-4">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="jlQeX7XrOin1796Jp8fQ-7" target="jlQeX7XrOin1796Jp8fQ-4" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="836" y="263.5" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-6" value="scientific cooperator&lt;br&gt;von Karman Institute (Belgium)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-6" value="scientific cooperator&lt;br&gt;von Karman Institute (Belgium)" style="whiteSpace=wrap;html=1;aspect=fixed;fillColor=#f8cecc;strokeColor=#b85450;" parent="1" vertex="1">
           <mxGeometry x="1098" y="378" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="jlQeX7XrOin1796Jp8fQ-7" value="Prof. Louis Walpot (European Space Agency)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+        <mxCell id="jlQeX7XrOin1796Jp8fQ-7" value="Prof. Louis Walpot (European Space Agency)" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="1" vertex="1">
           <mxGeometry x="714" y="227" width="120" height="60" as="geometry" />
         </mxCell>
       </root>
